@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Countries App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="errorText">Error! Try Again</string>
+    <string name="countryName">Country Name</string>
+    <string name="capitalName">Capital Name</string>
+    <string name="regionName">Region Name</string>
+    <string name="currencyName">Currency Name</string>
+    <string name="languageName">Language Name</string>
+    <string name="contentFlag">Country Flag</string>
+</resources>
