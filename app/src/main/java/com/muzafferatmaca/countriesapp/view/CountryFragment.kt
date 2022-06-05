@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.muzafferatmaca.countriesapp.R
+import com.muzafferatmaca.countriesapp.databinding.FragmentCountryBinding
 import com.muzafferatmaca.countriesapp.util.downloadFromUrl
 import com.muzafferatmaca.countriesapp.util.placeholderProgressBar
 import com.muzafferatmaca.countriesapp.viewmodel.CountryVM
@@ -18,6 +20,8 @@ class CountryFragment : Fragment() {
 
     private lateinit var viewModel : CountryVM
     private var countryUuid = 0
+    private lateinit var dataBinding : FragmentCountryBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +33,8 @@ class CountryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_country, container, false)
+        dataBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_country,container,false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,6 +60,9 @@ class CountryFragment : Fragment() {
 
             country?.let {
 
+                dataBinding.selectedCountry= it
+
+                /*
                 countryName.text = country.countryName
                 capitalName.text = country.countryCapital
                 regionName.text = country.countryRegion
@@ -65,6 +73,8 @@ class CountryFragment : Fragment() {
                     countryImageView.downloadFromUrl(country.imageUrl, placeholderProgressBar(it))
 
                 }
+
+                 */
 
             }
 

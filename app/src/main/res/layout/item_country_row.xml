@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data >
+
+        <variable
+            name="country"
+            type="com.muzafferatmaca.countriesapp.model.Country" />
+        <variable
+            name="listener"
+            type="com.muzafferatmaca.countriesapp.adapter.CountryClickListener" />
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:onClick="@{listener::onCountryClick}"
         android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/countryUudiTextView"
+            android:visibility="gone"
+            android:text="@{String.valueOf(country.uuid)}"/>
 
         <ImageView
             android:id="@+id/countryFlagImageView"
@@ -12,7 +31,8 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:padding="3dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:downloadUrl="@{country.imageUrl}"
+            />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -26,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Name"
+                android:text="@{country.countryName}"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -35,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Region"
+                android:text="@{country.countryRegion}"
                 android:textSize="15sp" />
 
         </LinearLayout>
